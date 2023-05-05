@@ -1,11 +1,19 @@
 <?php
 
-$alfabeto = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9), array('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '\\', ';', ':', '\'', '"', '<', '>', ',', '.', '?', '/'));
+$alphabet = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9), array('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', ';', ':', '\'', '"', '<', '>', ',', '.', '?', '/'));
 $password = '';
-$lunghezza_password = 12;
 
-for ($i = 0; $i < $lunghezza_password; $i++) {
-    $password .= $alfabeto[array_rand($alfabeto)];
+if(!empty($_GET['lenght'])){
+    $lunghezza_password = $_GET['lenght'];
+    if($lunghezza_password >= 8 && $lunghezza_password <= 32){
+        for ($i = 0; $i < $lunghezza_password; $i++) {
+            $password .= $alphabet[array_rand($alphabet)];
+        }
+    } else {
+        $password .= 'La lunghezza della password deve essere compresa tra 8 e 32 caratteri.';
+    }
+} else {
+    $password .= 'Inserisci una lunghezza valida';
 }
 
 ?>
@@ -34,6 +42,13 @@ for ($i = 0; $i < $lunghezza_password; $i++) {
 
 
 <body>    
+
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="GET">
+    <label for="lenght">Inserisci la lunghezza della password (min: 8 | max: 32)</label>
+        <input type="number" name="lenght" id="lenght" value="8">
+        <button type="subtim">Invia</button>
+    </form>
+
     <h1><?php echo $password ?></h1>
 </body>
 
