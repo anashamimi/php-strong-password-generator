@@ -1,5 +1,13 @@
 <?php
 
+$alfabeto = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9), array('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '\\', ';', ':', '\'', '"', '<', '>', ',', '.', '?', '/'));
+$password = '';
+$lunghezza_password = 12;
+
+for ($i = 0; $i < $lunghezza_password; $i++) {
+    $password .= $alfabeto[array_rand($alfabeto)];
+}
+
 ?>
 
 <html lang="en">    
@@ -26,7 +34,7 @@
 
 
 <body>    
-    
+    <h1><?php echo $password ?></h1>
 </body>
 
 </html>
