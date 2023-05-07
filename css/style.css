@@ -1,0 +1,16 @@
+/* General */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #025939;
+}
+
+.bg-form{
+    background-color: #012340;
+    color: white;
+}

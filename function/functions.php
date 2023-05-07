@@ -1,11 +1,10 @@
 <?php
 
 
-
+$password = '';
 
 if(!empty($_GET['lenght'])){
-    $lunghezza_password = $_GET['lenght'];
-    $password = 'ciao';
+    $lunghezza_password = $_GET['lenght']; 
     if($lunghezza_password >= 8 && $lunghezza_password <= 32){
         for ($i = 0; $i < $lunghezza_password; $i++) {
             $password .= $alphabet[array_rand($alphabet)];
