@@ -1,20 +1,10 @@
 <?php
 
-$alphabet = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9), array('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', ';', ':', '\'', '"', '<', '>', ',', '.', '?', '/'));
-$password = '';
+include __DIR__ . '/data/data.php';
 
-if(!empty($_GET['lenght'])){
-    $lunghezza_password = $_GET['lenght'];
-    if($lunghezza_password >= 8 && $lunghezza_password <= 32){
-        for ($i = 0; $i < $lunghezza_password; $i++) {
-            $password .= $alphabet[array_rand($alphabet)];
-        }
-    } else {
-        $password .= 'La lunghezza della password deve essere compresa tra 8 e 32 caratteri.';
-    }
-} else {
-    $password .= 'Inserisci una lunghezza valida';
-}
+include __DIR__ . '/function/functions.php';
+
+
 
 ?>
 
@@ -42,7 +32,7 @@ if(!empty($_GET['lenght'])){
 
 
 <body>    
-
+    <h1 class=" text-center">PASSWORD GENERATOR MOLTO SICURA MA DIFFICILE DA RICORDARE</h1>
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="GET">
     <label for="lenght">Inserisci la lunghezza della password (min: 8 | max: 32)</label>
         <input type="number" name="lenght" id="lenght" value="8">
