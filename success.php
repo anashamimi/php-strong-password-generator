@@ -1,13 +1,8 @@
 <?php
-
-include __DIR__ . '/data/data.php';
-
-include __DIR__ . '/function/functions.php';
-
 session_start();
-$_SESSION['password'] = $password;
-
+$password = $_SESSION['password'];
 ?>
+
 
 <html lang="en">
 
@@ -30,17 +25,11 @@ $_SESSION['password'] = $password;
     <div  class="d-flex justify-content-center align-items-center flex-column gap-4">
         <h1 class=" text-center p-5 text-white">PASSWORD GENERATOR MOLTO SICURA MA DIFFICILE DA RICORDARE</h1>
         <div  class="bg-form w-75 d-flex justify-content-center align-items-center flex-column p-5 rounded-4">
-            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="GET" class=" d-flex flex-column justify-content-center align-items-center ">
-                <label for="lenght" class="fs-5">Inserisci la lunghezza della password (min: 8 | max: 32)</label>
-                <input type="number" name="lenght" id="lenght" class="m-3">
-                <div>
-                    <button type="subtim" class="btn btn-success">Invia</button>
-                    <button type="reset" class="btn btn-success">Cancella</button>
-                </div>
-                
+            <p class="text-white p-0">Questa è la tua password:</p>
+            <p class=" text-warning fs-3"><?php echo $_SESSION['password']; ?></p>
+            <form action="index.php" method="GET" class=" d-flex flex-column justify-content-center align-items-center ">                
+                <button type="subtim" class="btn btn-success text-uppercase">Torna alla home</button>
             </form>
-
-            <p class=" text-warning pt-5 fs-3"><?php echo $password ?></p>
         </div>
         
     </div>

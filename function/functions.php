@@ -9,9 +9,11 @@ if(!empty($_GET['lenght'])){
         for ($i = 0; $i < $lunghezza_password; $i++) {
             $password .= $alphabet[array_rand($alphabet)];
         }
+
+        header('Location: ./success.php');
     } else {
-        $password .= 'La lunghezza della password deve essere compresa tra 8 e 32 caratteri.';
+        $password = 'La lunghezza della password deve essere compresa tra 8 e 32 caratteri.';
     }
 } else {
-    $password .= 'Inserisci una lunghezza valida';
+    $password = 'Inserisci una lunghezza valida';
 }
